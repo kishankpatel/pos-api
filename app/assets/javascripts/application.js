@@ -17,3 +17,4 @@
 //= require jquery.dataTables.min
 //= require jquery.tagsinput
 //= require bootstrap.min
+//= require common.js

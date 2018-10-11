@@ -48,20 +48,4 @@
       <%= yield %>
     </div>
   </body>
-  <script type="text/javascript">
-    $(document).ready( function () {
-      $('#itemsTable').DataTable();
-      $('#billsTable').DataTable();
-      
-    });
-
-    $(document).on("click",".close-alert",function() {
-      $(".alert").hide();
-    });
-    $(function() {
-      $('.tags').tagsInput({
-        'defaultText':'Add a tag'
-      });
-    })
-  </script>
 </html>

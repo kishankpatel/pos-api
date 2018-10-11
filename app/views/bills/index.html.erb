@@ -16,8 +16,8 @@
     <% @bills.each do |bill| %>
       <tr>
         <td><%= bill.bill_to %></td>
-        <td><%= bill.total_amount %></td>
-        <td><%= bill.net_amount %></td>
+        <td><%= bill.total_amount.round(2) %></td>
+        <td><%= bill.net_amount.round(2) %></td>
         <td><%= bill.creator.email %></td>
         <td><%= link_to "View Details", bill %></td>
       </tr>
