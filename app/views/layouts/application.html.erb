@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>POS System</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%= bootstrap_flash %>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">POS System</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li ><a href="/">Home</a></li>
+              <% if user_signed_in? %>
+                <li ><a href="/items">Items</a></li>
+                <li ><a href="/bills">Bills</a></li>
+                <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+                <li class="active"><a href="javascript:void(0)">Logged in as: <%=current_user.email%></a></li>
+              <% else %>
+                <li>
+                  <%= link_to('Login', new_user_session_path)  %>  
+                </li>
+                <li>
+                  <%= link_to('SignUp', new_user_registration_path)  %>  
+                </li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </header>  
+    <div class="main_cntr">
+      <%= yield %>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready( function () {
+      $('#itemsTable').DataTable();
+      $('#billsTable').DataTable();
+      
+    });
+
+    $(document).on("click",".close-alert",function() {
+      $(".alert").hide();
+    });
+    $(function() {
+      $('.tags').tagsInput({
+        'defaultText':'Add a tag'
+      });
+    })
+  </script>
+</html>

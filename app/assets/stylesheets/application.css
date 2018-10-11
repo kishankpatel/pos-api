@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ul {
+  padding-left: 0px;
+  list-style: none;
+}
+.fl{float: left;}
+.fr{float: right;}
+.cb{clear:both;}
+
+
+.login-form {
+  width: 385px;
+  margin: 100px auto 0
+}
+.login-form form {        
+  margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .login-btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+
+.input-group-addon .fa {
+    font-size: 18px;
+}
+
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background:none;}
+
+.alert {
+    position: fixed;
+    top: 60px;
+    right: 30px;
+}
+.alert button.close {
+    margin-left: 10px;
+    position: relative;
+    top: -15px;
+    right: -10px;
+}
+.alert button.close:hover{color:red;opacity: 1;}
+.header_fixed{
+  position: fixed;
+  width: 100%;
+  border-radius: 0;
+  top: 0;
+  margin: 0;
+  z-index: 999;
+}
+.main_cntr {
+  width: 90%;
+  margin: 60px auto 0;
+}
+.modal-content {
+    border-radius: 0;
+}
+
+textarea{resize:none;}
+.form-group span.input-group-addon,.form-group .form-control,input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+    border-radius: 0;
+}
+.input-group {
+   width: 100%;
+}
+table {
+  width: 100% !important;
+}
+.tagsinput{width: 100% !important;}
+.item_show_page{font-size: 20px;}
+.create_bill_page .login-form {
+    width: 70%;
+}
+
+
+
+
+
+
+.bill_item{
+  position: relative;
+}
+.bill_item .remove {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  z-index: 9;
+  font-size: 20px;
+}
+.bill_item .remove a.remove_item:hover {
+  text-decoration: none;
+}
+a.add_item {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+p.amount, p.item_amount {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+.item_header_cntr {margin-bottom: 15px;}
+.item_header {
+    font-weight: bold;
+    text-align: center;
+    background: #aaa;
+    padding: 7px;
+}
+
+.total_amount_sec {
+    float: right;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: right;
+    margin: 30px 0;
+}
+span.calc {
+    font-weight: bold;
+}
+.bill_show div{letter-spacing: 1px;margin-bottom: 10px;}

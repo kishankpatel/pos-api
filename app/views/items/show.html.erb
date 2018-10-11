@@ -1,0 +1,24 @@
+<div class="item_show_page">
+  <p>
+    <strong>Name:</strong>
+    <%= @item.name %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @item.price %>
+  </p>
+  <p>
+    <strong>Tags:</strong>
+    <%= @item.tags %>
+  </p>
+
+  <p>
+    <strong>Created by:</strong>
+    <%= @item.creator.email %>
+  </p>
+
+  
+</div>
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

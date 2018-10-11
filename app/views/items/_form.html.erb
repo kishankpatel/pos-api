@@ -1,0 +1,38 @@
+<div class="login-form">
+  <%= form_with(model: item, local: true) do |f| %>
+    <% if item.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+        <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h2 class="text-center"><%= item.new_record? ? "Add Item" : "Edit Item"%></h2>   
+    <div class="form-group">
+      <div class="input-group">
+          <%= f.text_field :name, class: "form-control", required: true, placeholder:"Name" %>    
+        </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+          <%= f.text_field :price, class: "form-control", required: true, placeholder:"Price" %>    
+        </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+          <%= f.text_field :tags, class: "form-control tags", required: true, placeholder:"Price" %>    
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit item.new_record? ? "Save" : "Update", :class => "btn btn-primary login-btn btn-block" %>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+</div>
+
+

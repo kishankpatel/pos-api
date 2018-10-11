@@ -1,0 +1,28 @@
+
+<div class="bill_show">
+  <div>
+    <b>Total Amount: </b> <%= @bill.total_amount%>
+  </div>
+  <div>
+    <b>Net Amount (Total + Tax): </b> <%= @bill.net_amount%>
+  </div>
+</div>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Item Purchased</th>
+      <th>Quantity</th>
+      <th>Item Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bill_items.each do |bill_item| %>
+      <tr>
+        <td><%= bill_item.item.name %></td>
+        <td><%= bill_item.item.price %></td>
+        <td><%= bill_item.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

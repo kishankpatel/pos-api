@@ -1,0 +1,26 @@
+<%=link_to "Create Bill", new_bill_path, class:"btn btn-success create-btn" %>
+<h1>Bills</h1>
+
+<table class="table table-striped table-hover" id="billsTable">
+  <thead>
+    <tr>
+      <th>Bill To</th>
+      <th>Total Amount</th>
+      <th>Net Amount</th>
+      <th>Created by</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.bill_to %></td>
+        <td><%= bill.total_amount %></td>
+        <td><%= bill.net_amount %></td>
+        <td><%= bill.creator.email %></td>
+        <td><%= link_to "View Details", bill %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
