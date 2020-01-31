@@ -14,33 +14,24 @@ class BillsController < ApplicationController
   end
 
   def new
-    # byebug
     @items = current_user.items
     @bill = Bill.new
   end
 
   def create
     @bill = Bill.new(bill_params)
-    if @bill.save
-      @bill.update_attribute :created_by, current_user.id
-      bill_items = Hash[params[:item_id].zip(params[:quantity])] 
-      total_amount = 0
-      net_amount = 0
-      
-      bill_items.each do |item_id, quantity|
-        item = current_user.items.where("id = ?", item_id).first
-        if item.present?  
-          total_amount = total_amount + (item.price * quantity.to_i)
-          BillItem.create(item_id: item_id, quantity: quantity, bill_id: @bill.id)
-        end
+    respond_to do |format|
+      if @bill.save
+        @bill.update_attribute :created_by, current_user.id
+        @bill.save_bill_items(params, current_user)
+
+        format.html { redirect_to root_path, notice: 'Item was successfully created.' }
+        format.json { render :show, status: :created, location: @bill }
+      else
+        format.html { render :new }
+        format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
-      net_amount = total_amount + (total_amount * 0.15)
-
-      @bill.update_attributes(total_amount: total_amount, net_amount: net_amount)
-
     end
-    flash[:notice] = "Bill created successfully."
-    redirect_to bills_path
   end
 
   private
