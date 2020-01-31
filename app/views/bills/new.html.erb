@@ -30,8 +30,7 @@
       <div class="bill_item row">
         <div class="form-group col-md-6">
           <div class="input-group">
-            <%#= bill_item.select("item_id[]", @items.present? ? Item.all.collect {|u| [u.name, u.id, {'data-price' => u.price}]} : "", {:include_blank => "- Select Item -"}, {class: "form-control select_item", id: ""}) %>
-            <%= select_tag 'item_id[]', options_for_select(Item.all.collect{ |u| [u.name, u.id, {'data-price' => u.price}] }), {prompt: "- Select Item -", class: "form-control select_item", id: "", required: true} %>
+            <%= select_tag 'item_id[]', options_for_select(@items.collect{ |u| [u.name, u.id, {'data-price' => u.price}] }), {prompt: "- Select Item -", class: "form-control select_item", id: "", required: true} %>
           </div>
         </div>
         <div class="col-md-2">
